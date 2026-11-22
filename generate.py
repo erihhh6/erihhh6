@@ -22,7 +22,7 @@ EXTRA_TECH = ["CUDA", "Flask", "Arduino"]  # tools that don't show up as repo la
 MAX_LANGS = 4
 
 PINNED = [
-    {"repo": "crypto-auction", "tags": ["zk-proofs", "sha256", "flask"]},
+    {"repo": "crypto-auction", "tags": ["zk-proofs", "pedersen", "flask"]},
     {"repo": "crypto-visualizer", "tags": ["aes", "ecdh", "customtkinter"]},
     {"repo": "zk-gpu-accelerator", "tags": ["cuda", "ntt", "msm", "groth16"]},
 ]
@@ -86,7 +86,19 @@ def fetch():
         "langs": top_langs[:MAX_LANGS],
         "repo_info": {r["name"]: r for r in repos},
         "repo_langs": repo_langs,
+        # last commit on each pinned repo's default branch (pushed_at also moves on bot/dependabot branches)
+        "last_commit": {c["repo"]: last_commit(c["repo"], next(r for r in repos if r["name"] == c["repo"]))
+                        for c in PINNED},
     }
+
+
+def last_commit(name, info):
+    try:
+        commits = api(f"/repos/{USER}/{name}/commits?per_page=1&sha={info['default_branch']}")
+        return commits[0]["commit"]["committer"]["date"]
+    except Exception as e:
+        print(f"last commit lookup failed for {name}, using pushed_at:", e)
+        return info["pushed_at"]
 
 
 # ----------------------------------------------------------------------------- helpers
@@ -379,7 +391,7 @@ def card_svg(cfg, d, pad_l=0, pad_r=0):
 {icon("star", 18, 222, 0.95, MUTED)}
 <text x="38" y="234" font-size="11.5" fill="{MUTED}">{info["stargazers_count"]}</text>
 {icon("clock", 78, 222, 0.95, MUTED)}
-<text x="98" y="234" font-size="11.5" fill="{MUTED}">updated {ago(info["pushed_at"])}</text>
+<text x="98" y="234" font-size="11.5" fill="{MUTED}">updated {ago(d.get("last_commit", {}).get(cfg["repo"], info["pushed_at"]))}</text>
 </g>
 </svg>"""
 

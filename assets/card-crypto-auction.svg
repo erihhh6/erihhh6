@@ -60,12 +60,12 @@
 <text x="234" y="48" font-size="11" font-weight="700" fill="#f5f5f5" text-anchor="middle">53%</text>
 
 <text x="18" y="96" font-size="12" fill="#c4c4c4">Sealed-bid auction with SHA-256</text><text x="18" y="114" font-size="12" fill="#c4c4c4">commitments and zero-knowledge</text><text x="18" y="132" font-size="12" fill="#c4c4c4">range proofs built from scratch</text><text x="18" y="150" font-size="12" fill="#c4c4c4">in Python + Flask.</text>
-<rect x="18" y="172" width="76.7" height="24" rx="12.0" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".16"/><text x="28" y="188.0" font-size="10.5" fill="#e5e5e5">zk-proofs</text><rect x="100.69999999999999" y="172" width="57.8" height="24" rx="12.0" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".16"/><text x="110.69999999999999" y="188.0" font-size="10.5" fill="#e5e5e5">sha256</text><rect x="164.5" y="172" width="51.5" height="24" rx="12.0" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".16"/><text x="174.5" y="188.0" font-size="10.5" fill="#e5e5e5">flask</text>
+<rect x="18" y="172" width="76.7" height="24" rx="12.0" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".16"/><text x="28" y="188.0" font-size="10.5" fill="#e5e5e5">zk-proofs</text><rect x="100.69999999999999" y="172" width="70.4" height="24" rx="12.0" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".16"/><text x="110.69999999999999" y="188.0" font-size="10.5" fill="#e5e5e5">pedersen</text><rect x="177.1" y="172" width="51.5" height="24" rx="12.0" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".16"/><text x="187.1" y="188.0" font-size="10.5" fill="#e5e5e5">flask</text>
 
 <line x1="18" y1="212" x2="254" y2="212" stroke="#ffffff" stroke-opacity=".12"/>
 <g transform="translate(18,222) scale(0.95)" fill="none" stroke="#a3a3a3" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polygon points="8,1.6 10,6 14.6,6.4 11.1,9.4 12.2,14 8,11.5 3.8,14 4.9,9.4 1.4,6.4 6,6"/></g>
 <text x="38" y="234" font-size="11.5" fill="#a3a3a3">0</text>
 <g transform="translate(78,222) scale(0.95)" fill="none" stroke="#a3a3a3" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6.2"/><path d="M8 4.6V8l2.4 1.6"/></g>
-<text x="98" y="234" font-size="11.5" fill="#a3a3a3">updated 3d ago</text>
+<text x="98" y="234" font-size="11.5" fill="#a3a3a3">updated 1mo ago</text>
 </g>
 </svg>
