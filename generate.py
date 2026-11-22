@@ -330,8 +330,13 @@ def projects_header_svg():
 </svg>"""
 
 
-def card_svg(cfg, d, seed=0):
-    W, H = 270, 250
+# The three cards sit side by side and together span the same 840px as the header cards.
+# Each card SVG carries its share of the gap as transparent padding, so the outer edges line up.
+CARD_W, CARD_GAP = 272, 12            # 3 * 272 + 2 * 12 = 840
+
+
+def card_svg(cfg, d, pad_l=0, pad_r=0):
+    W, H = CARD_W, 250
     info = d["repo_info"][cfg["repo"]]
     langs = d["repo_langs"].get(cfg["repo"], {})
     total = sum(langs.values()) or 1
@@ -348,9 +353,11 @@ def card_svg(cfg, d, seed=0):
         f'<text x="18" y="{96 + i*18}" font-size="12" fill="#c4c4c4">{esc(l)}</text>' for i, l in enumerate(lines))
     tag_items = [(t, None) for t in tags]
 
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">
+    TW = W + pad_l + pad_r
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{TW}" height="{H}" viewBox="0 0 {TW} {H}">
 <defs>{defs_common()}</defs>
 <style>{BASE_CSS}</style>
+<g transform="translate({pad_l},0)">
 {glass(W, H, 14, rain=False)}
 
 {icon("repo", 18, 22, 1.1, MUTED)}
@@ -373,6 +380,7 @@ def card_svg(cfg, d, seed=0):
 <text x="38" y="234" font-size="11.5" fill="{MUTED}">{info["stargazers_count"]}</text>
 {icon("clock", 78, 222, 0.95, MUTED)}
 <text x="98" y="234" font-size="11.5" fill="{MUTED}">updated {ago(info["pushed_at"])}</text>
+</g>
 </svg>"""
 
 
@@ -382,8 +390,11 @@ def main():
     OUT.mkdir(exist_ok=True)
     (OUT / "header.svg").write_text(header_svg(d), encoding="utf-8")
     (OUT / "projects-header.svg").write_text(projects_header_svg(), encoding="utf-8")
+    half = CARD_GAP // 2
     for i, cfg in enumerate(PINNED):
-        (OUT / f"card-{cfg['repo']}.svg").write_text(card_svg(cfg, d, i), encoding="utf-8")
+        pad_l = 0 if i == 0 else half
+        pad_r = 0 if i == len(PINNED) - 1 else half
+        (OUT / f"card-{cfg['repo']}.svg").write_text(card_svg(cfg, d, pad_l, pad_r), encoding="utf-8")
     print("stats:", {k: d[k] for k in ("repos", "stars", "contributions", "followers", "langs")})
 
 
