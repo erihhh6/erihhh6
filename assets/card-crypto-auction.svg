@@ -59,7 +59,7 @@
 </g>
 <text x="234" y="48" font-size="11" font-weight="700" fill="#f5f5f5" text-anchor="middle">53%</text>
 
-<text x="18" y="96" font-size="12" fill="#c4c4c4">Sealed-bid auction with SHA-256</text><text x="18" y="114" font-size="12" fill="#c4c4c4">commitments and zero-knowledge</text><text x="18" y="132" font-size="12" fill="#c4c4c4">range proofs built from scratch</text><text x="18" y="150" font-size="12" fill="#c4c4c4">in Python + Flask.</text>
+<text x="18" y="96" font-size="12" fill="#c4c4c4">Sealed-bid auction with</text><text x="18" y="114" font-size="12" fill="#c4c4c4">Pedersen commitments and</text><text x="18" y="132" font-size="12" fill="#c4c4c4">zero-knowledge range proofs, in</text><text x="18" y="150" font-size="12" fill="#c4c4c4">Python + Flask.</text>
 <rect x="18" y="172" width="76.7" height="24" rx="12.0" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".16"/><text x="28" y="188.0" font-size="10.5" fill="#e5e5e5">zk-proofs</text><rect x="100.69999999999999" y="172" width="70.4" height="24" rx="12.0" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".16"/><text x="110.69999999999999" y="188.0" font-size="10.5" fill="#e5e5e5">pedersen</text><rect x="177.1" y="172" width="51.5" height="24" rx="12.0" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".16"/><text x="187.1" y="188.0" font-size="10.5" fill="#e5e5e5">flask</text>
 
 <line x1="18" y1="212" x2="254" y2="212" stroke="#ffffff" stroke-opacity=".12"/>
